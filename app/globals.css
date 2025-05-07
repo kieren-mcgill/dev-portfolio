@@ -30,6 +30,7 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-space-grotesk), sans-serif;
+  scroll-behavior: smooth;
 }
 
 h1, .h1 {
@@ -47,6 +48,11 @@ h3, .h3 {
 
 p, .p {
   @apply text-body
+}
+
+section > div {
+  padding-left: clamp(1.25rem, -4.286rem + 13.839vw, 9rem);
+  padding-right: clamp(1.25rem, -4.286rem + 13.839vw, 9rem);
 }
 
 
