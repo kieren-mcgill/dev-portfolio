@@ -5,9 +5,9 @@ const Header = () => {
 
     return (
         <header
-        className="m-auto max-w-[90rem]">
+        className="fixed w-full backdrop-blur-md z-100">
 
-            <div className='flex w-full h-16 items-center justify-between'>
+            <div className='flex w-full max-w-[90rem] h-16 items-center justify-between'>
                 <Link className='h3' href='/#'>kierenmcgill</Link>
 
                 <SocialLinks/>

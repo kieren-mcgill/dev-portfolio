@@ -11,8 +11,8 @@ const Button = ({type, path, children}: ButtonProps) => {
 
     const styles = `
         uppercase font-bold border-b-2 border-green pb-2
-        hover:border-white
-        transition duration-300
+        hover:border-white hover:-translate-y-1
+        transition duration-200
     `;
 
     switch (type) {

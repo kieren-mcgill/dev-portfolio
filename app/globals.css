@@ -34,7 +34,7 @@ body {
 }
 
 h1, .h1 {
-  @apply text-xl font-bold;
+  @apply text-xl font-bold tracking-tighter leading-tight;
 
 }
 

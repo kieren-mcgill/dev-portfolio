@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${spaceGrotesk.variable} antialiased dark`}
+        className={`${spaceGrotesk.variable} antialiased dark relative`}
       >
         <Header/>
         {children}

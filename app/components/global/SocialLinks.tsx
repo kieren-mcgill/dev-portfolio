@@ -7,14 +7,18 @@ const SocialLinks = () => {
     return (
         <div className='flex gap-3'>
 
-            <a href={'https://github.com/kieren-mcgill'}
+            <a
+                className='hover:-translate-y-1 transition duration-200'
+                href={'https://github.com/kieren-mcgill'}
                target="_blank"
                rel="noopener noreferrer"
             >
                 <Image src={gitHubIcon} alt="GitHub" width={24} height={24} />
             </a>
 
-            <a href={'https://www.linkedin.com/in/kacmcgill'}
+            <a
+                className='hover:-translate-y-1 transition duration-200'
+                href={'https://www.linkedin.com/in/kacmcgill'}
                target="_blank"
                rel="noopener noreferrer"
             >
