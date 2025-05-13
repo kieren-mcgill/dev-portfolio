@@ -1,11 +1,11 @@
-import Section from "@/app/components/global/Section";
-import Button from "@/app/components/global/Button";
 import HomePageHero from "@/app/components/sections/HomePageHero";
+import AboutMeSection from "@/app/components/sections/AboutMeSection";
 
 export default function Home() {
   return (
       <>
         <HomePageHero/>
+          <AboutMeSection/>
       </>
   );
 }

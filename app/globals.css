@@ -14,10 +14,16 @@
 
   --font-space: var(--font-space-grotesk);
 
+  /* --- clamp values between 40rem and 96 rem unless stated otherwise */
+
   --text-xl: clamp(3.5rem, 2.071rem + 3.571vw, 5.5rem);
   --text-lg: clamp(2rem, 1.286rem + 1.786vw, 3rem);
   --text-md: clamp(1.25rem, 1.071rem + 0.446vw, 1.5rem);
   --text-body: clamp(0.875rem, 0.607rem + 0.67vw, 1.25rem);
+
+  --spacing-xl: clamp(1.25rem, -4.286rem + 13.839vw, 9rem);
+  --spacing-lg: clamp(1.25rem, -1.071rem + 5.804vw, 4.5rem) ;
+
 
 }
 
@@ -53,8 +59,7 @@ p, .p {
 section > div,
 header > div,
 footer > div {
-  padding-left: clamp(1.25rem, -4.286rem + 13.839vw, 9rem);
-  padding-right: clamp(1.25rem, -4.286rem + 13.839vw, 9rem);
+  @apply px-xl
 }
 
 
