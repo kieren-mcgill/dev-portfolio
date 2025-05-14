@@ -7,7 +7,7 @@ const Header = () => {
         <header
         className="fixed w-full backdrop-blur-md z-100">
 
-            <div className='flex w-full max-w-[90rem] h-16 items-center justify-between'>
+            <div className='flex w-full max-w-[90rem] h-16 items-center justify-between m-auto'>
                 <Link className='h3' href='/#'>kierenmcgill</Link>
 
                 <SocialLinks/>

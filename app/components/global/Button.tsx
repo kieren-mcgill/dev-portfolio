@@ -3,13 +3,15 @@ import {ReactNode} from "react";
 
 type ButtonProps = {
     type: 'link' | 'ext-link' | 'submit'
-    path?: string
+    path?: string,
+    customClass?: string
     children: ReactNode
 }
 
-const Button = ({type, path, children}: ButtonProps) => {
+const Button = ({type, path, children, customClass}: ButtonProps) => {
 
     const styles = `
+        ${customClass || ''}
         uppercase font-bold border-b-2 border-green pb-2
         hover:border-white hover:-translate-y-1
         transition duration-200
