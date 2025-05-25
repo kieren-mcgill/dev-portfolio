@@ -1,10 +1,10 @@
 import {ReactNode} from "react";
 
 type SectionProps = {
-    children: ReactNode,
-    title?: string,
-    id?: string,
-    sectionClass?: string,
+    children: ReactNode
+    title?: string
+    id?: string
+    sectionClass?: string
     innerClass?: string
 }
 
