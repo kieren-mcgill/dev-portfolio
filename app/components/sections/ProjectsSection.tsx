@@ -1,7 +1,7 @@
 import Section from "@/app/components/global/Section";
 import ProjectCard from "@/app/components/ProjectCard";
 
-const ProjectsSection = () => {
+const ProjectsSection = ({ projectsData }: { projectsData: any[] }) => {
 
     return (
         <Section
@@ -9,10 +9,9 @@ const ProjectsSection = () => {
             title={"Projects"}
         >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <ProjectCard/>
-                <ProjectCard/>
-                <ProjectCard/>
-
+                {projectsData && projectsData.map((project, index) => (
+                    <ProjectCard key={index} project={project} />
+                ))}
             </div>
         </Section>
     )

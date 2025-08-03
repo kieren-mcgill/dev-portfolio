@@ -2,14 +2,14 @@ import gitHubIcon from '@/public/icons/github-fill.svg';
 import linkedInIcon from '@/public/icons/linkedin-box-fill.svg';
 import Image from 'next/image';
 
-const SocialLinks = () => {
+const SocialLinks = ({ githubLink, linkedinLink }: { githubLink?: string, linkedinLink?: string }) => {
 
     return (
         <div className='flex gap-3'>
 
             <a
                 className='hover:-translate-y-1 transition duration-200'
-                href={'https://github.com/kieren-mcgill'}
+                href={githubLink || 'https://github.com/kieren-mcgill'}
                target="_blank"
                rel="noopener noreferrer"
             >
@@ -18,7 +18,7 @@ const SocialLinks = () => {
 
             <a
                 className='hover:-translate-y-1 transition duration-200'
-                href={'https://www.linkedin.com/in/kacmcgill'}
+                href={linkedinLink || 'https://www.linkedin.com/in/kacmcgill'}
                target="_blank"
                rel="noopener noreferrer"
             >

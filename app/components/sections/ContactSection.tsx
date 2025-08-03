@@ -6,9 +6,9 @@ import bgOvals from "@/public/images/bg-ovals.svg";
 import Form from "next/form";
 import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/global/Button";
-import {sendContactForm} from "@/app/actions";
-import {useActionState, useEffect} from "react";
-import {ContactFormState} from "@/app/types/contact-form-type";
+import {sendContactForm} from "@/app/actions/contact";
+import {useActionState} from "react";
+import {ContactFormState} from "@/app/types/contact-form";
 
 
 const ContactSection = () => {
@@ -16,10 +16,6 @@ const ContactSection = () => {
     const initialState = { success: null, errors: {} };
 
     const [state, formAction ] = useActionState<ContactFormState, FormData>(sendContactForm, initialState);
-
-    useEffect(() => {
-        console.log("error", state)
-    }, [state]);
 
     return (
         <Section

@@ -1,22 +1,34 @@
 'use client';
 
-import { useActionState } from 'react';
+import { useActionState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import Section from "@/app/components/global/Section";
 import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/global/Button";
 import { authenticate } from "@/app/actions/admin";
+import Form from "next/form";
+import {AuthFormState} from "@/app/types/auth-form";
 
 const AdminPage = () => {
+
     const initialState = { success: null, errors: {} };
-    const [state, formAction] = useActionState(authenticate, initialState);
+
+    const [state, formAction] = useActionState<AuthFormState, FormData>(authenticate, initialState);
+
+    const router = useRouter();
+
+    useEffect(() => {
+        if (state.success) {
+            router.push('/admin/content');
+        }
+    }, [state.success, router]);
 
     return (
         <Section
-            sectionClass='flex-grow'
-            innerClass='flex flex-col justify-center items-center'
-            title={'Admin Login'}
+            sectionClass='flex flex-grow items-center'
+            innerClass='flex flex-col justify-center'
         >
-            <form action={formAction} className={"flex flex-col gap-10 w-full max-w-md"}>
+            <Form action={formAction} className={"flex flex-col gap-10 w-full max-w-md"}>
                 <FormInput
                     type={'password'}
                     id={'password'}
@@ -29,7 +41,7 @@ const AdminPage = () => {
                     >Login
                     </Button>
                 </div>
-            </form>
+            </Form>
         </Section>
     );
 };

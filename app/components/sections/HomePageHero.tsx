@@ -3,7 +3,7 @@ import Image from "next/image";
 import bgOvals from '@/public/images/bg-ovals.svg';
 import Button from "@/app/components/global/Button";
 
-const HomePageHero = () => {
+const HomePageHero = ({ heroData }: { heroData: any }) => {
 
     return (
         <Section
@@ -17,14 +17,12 @@ const HomePageHero = () => {
             />
 
             <div>
-                <h1>Nice to meet you!</h1>
-                <h1>I'm <span className='underline decoration-green underline-offset-16'>Kieren McGill</span>
-                </h1>
+                <h1>{heroData?.greeting || 'Nice to meet you! I\'m'} <span className='underline decoration-green underline-offset-16'>{heroData?.name || 'Kieren McGill'}</span></h1>
             </div>
 
-            <p className='max-w-[80vw]'>I'm a software and web developer based in Sheffield, UK</p>
+            <p className='max-w-[80vw]'>{heroData?.tagline || 'I\'m a software and web developer based in Sheffield, UK'}</p>
 
-            <Button type={'link'}>contact me</Button>
+            <Button type={'link'} href={heroData?.buttonPath || '#'}>{heroData?.buttonText || 'contact me'}</Button>
         </Section>
     )
 }

@@ -2,13 +2,14 @@ import Link from "next/link";
 import {ReactNode} from "react";
 
 type ButtonProps = {
-    type: 'link' | 'ext-link' | 'submit'
+    type: 'link' | 'ext-link' | 'submit' | 'button'
     path?: string
     customClass?: string
     children: ReactNode
+    onClick?: () => void
 }
 
-const Button = ({type, path, children, customClass}: ButtonProps) => {
+const Button = ({type, path, children, customClass, onClick}: ButtonProps) => {
 
     const styles = `
         ${customClass || ''}
@@ -41,6 +42,16 @@ const Button = ({type, path, children, customClass}: ButtonProps) => {
                 <button
                 className={styles}
                 type="submit"
+                >
+                    {children}
+                </button>
+            )
+        case 'button':
+            return (
+                <button
+                className={styles}
+                type="button"
+                onClick={onClick}
                 >
                     {children}
                 </button>

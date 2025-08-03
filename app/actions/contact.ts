@@ -2,7 +2,7 @@
 
 import {ContactFormSchema} from "@/app/schema/contact-form-schema";
 import {z} from "zod/v4";
-import {ContactFormState} from "@/app/types/contact-form-type";
+import {ContactFormState} from "@/app/types/contact-form";
 
 export const sendContactForm = async (
     _prevState: ContactFormState,
