@@ -30,7 +30,7 @@ export default async function RootLayout({
       <body
         className={`${spaceGrotesk.variable} antialiased dark relative flex flex-col min-h-screen h-full`}
       >
-        <Header headerData={headerData?.data} />
+        <Header headerData={headerData?.data ?? null} />
         <main className="flex flex-col flex-grow">{children}</main>
         <Footer/>
       </body>
