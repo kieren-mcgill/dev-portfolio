@@ -6,8 +6,8 @@ import type { AboutMeData } from '@/app/types/cms';
 
 const AboutMeSection = ({ aboutMeData }: { aboutMeData: AboutMeData | null }) => {
 
-    const {aboutMeText} = aboutMeData;
-    const mainText: string[]  = aboutMeText?.split('\r\n').filter(paragraph => paragraph.trim() !== '');
+    const {aboutMeText} = aboutMeData ?? {};
+    const mainText  = aboutMeText?.split('\r\n').filter(paragraph => paragraph.trim() !== '');
 
     return (
         <Section
@@ -19,7 +19,7 @@ const AboutMeSection = ({ aboutMeData }: { aboutMeData: AboutMeData | null }) =>
             <div className='flex flex-col-reverse sm:flex-row gap-6 items-center sm:items-start mb-8 lg:mg-12'>
                 <div>
                     {
-                        mainText.length &&
+                        mainText?.length &&
                         mainText.map((line, i) =>
                         <p className={'mb-2'} key={`about-me-line-${i}`}>{line}</p>
                         )

@@ -6,8 +6,6 @@ import { HeroData } from '@/app/types/cms';
 
 const HomePageHero = ({ heroData }: { heroData: HeroData | null }) => {
 
-    console.log(heroData?.buttonPath)
-
     return (
         <Section
             sectionClass='h-screen'

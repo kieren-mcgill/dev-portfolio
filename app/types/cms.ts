@@ -20,6 +20,7 @@ export interface AboutMeData {
 }
 
 export interface Project {
+    id: number;
     title: string;
     technologies: string;
     projectLink: string;
@@ -32,6 +33,7 @@ export interface ProjectsData {
 }
 
 export interface Experience {
+    id: number;
     company: string;
     title: string;
     dates: string;
@@ -42,12 +44,17 @@ export interface ExperienceData {
     experiences: Experience[];
 }
 
+export interface ContactData {
+    contactIntroText: string;
+}
+
 export interface PageData {
     header: HeaderData | null;
     hero: HeroData | null;
     aboutMe: AboutMeData | null;
     projects: ProjectsData | null;
     experience: ExperienceData | null;
+    contact: ContactData | null;
 }
 
 // Type for the return of getSingleDoc
@@ -63,3 +70,8 @@ export type PageDataResult = {
     data: PageData;
     error?: string;
 }
+
+export type CmsDataState = {
+    success: boolean | null;
+    error: string | undefined;
+};

@@ -1,7 +1,7 @@
 'use server'
 
 import { ContactFormSchema } from "@/app/schema/contact-form-schema";
-import { z } from "zod/v4";
+import { z as v4z } from "zod/v4";
 import { ContactFormState } from "@/app/types/contact-form";
 import Mailjet from 'node-mailjet';
 
@@ -18,10 +18,10 @@ export const sendContactForm = async (
 
     if (!parsed.success) {
 
-        const errorTree = z.treeifyError(parsed.error);
+        const errorTree = v4z.treeifyError(parsed.error);
 
         const fieldErrors = Object.fromEntries(
-            Object.entries(errorTree.properties).map(([key, val]) => [
+            Object.entries(errorTree.properties ?? {}).map(([key, val]) => [
                 key,
                 val.errors?.[0] ?? '',
             ])

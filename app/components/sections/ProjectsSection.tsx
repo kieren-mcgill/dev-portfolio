@@ -10,7 +10,8 @@ const ProjectsSection = ({ projectsData }: { projectsData: ProjectsData | null }
             title={"Projects"}
         >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {projectsData && projectsData.map((project, index) => (
+                {projectsData?.projects?.length &&
+                    projectsData.projects.map((project, index) => (
                     <ProjectCard key={index} project={project} />
                 ))}
             </div>
