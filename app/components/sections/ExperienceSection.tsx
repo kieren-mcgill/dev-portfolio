@@ -15,7 +15,7 @@ const ExperienceSection = ({ experienceData }: { experienceData: ExperienceData 
             title={"Experience"}
         >
             <div className="md:flex md:gap-12">
-                <div className="flex md:flex-col mb-8 md:mb-0 md:border-r md:border-white/20 md:pr-8">
+                <div className="flex overflow-x-auto md:flex-col mb-8 md:mb-0 md:border-r md:border-white/20 md:pr-8">
                     {experiences?.length && experiences.map((item, index) => (
                         <button
                             key={index}
