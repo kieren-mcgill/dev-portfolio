@@ -4,11 +4,13 @@ import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/global/Button";
 import CmsSectionContainer from "@/app/components/cms/CmsSectionContainer";
 import { updateAboutMeData } from '@/app/actions/cms';
+import { AboutMeData } from '@/app/types/cms';
+import Form from "next/form";
 
-const AboutMeCms = ({ initialData }: { initialData: any }) => {
+const AboutMeCms = ({ initialData }: { initialData: AboutMeData | null }) => {
     return (
         <CmsSectionContainer title="About Me">
-            <form className="flex flex-col gap-4" action={updateAboutMeData}>
+            <Form className="flex flex-col gap-4" action={updateAboutMeData}>
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <FormInput
                         type={'textarea'}
@@ -55,7 +57,7 @@ const AboutMeCms = ({ initialData }: { initialData: any }) => {
                 <div className="flex justify-end mt-4">
                     <Button type="submit">Save</Button>
                 </div>
-            </form>
+            </Form>
         </CmsSectionContainer>
     );
 };

@@ -1,7 +1,8 @@
 import Link from "next/link";
 import SocialLinks from "@/app/components/global/SocialLinks";
+import { HeaderData } from '@/app/types/cms';
 
-const Header = ({ headerData }: { headerData: any }) => {
+const Header = ({ headerData }: { headerData: HeaderData | null }) => {
 
     return (
         <header

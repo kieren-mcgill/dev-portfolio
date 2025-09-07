@@ -4,12 +4,14 @@ import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/global/Button";
 import CmsSectionContainer from "@/app/components/cms/CmsSectionContainer";
 import { updateHeroData } from '@/app/actions/cms';
+import Form from "next/form";
+import { HeroData } from '@/app/types/cms';
 
-const HeroCms = ({ initialData }: { initialData: any }) => {
+const HeroCms = ({ initialData }: { initialData: HeroData | null }) => {
 
     return (
         <CmsSectionContainer title="Hero">
-            <form className="flex flex-col gap-4" action={updateHeroData}>
+            <Form className="flex flex-col gap-4" action={updateHeroData}>
                 <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
                     <FormInput
                         type={'text'}
@@ -65,7 +67,7 @@ const HeroCms = ({ initialData }: { initialData: any }) => {
                 <div className="flex justify-end mt-4">
                     <Button type="submit">Save</Button>
                 </div>
-            </form>
+            </Form>
         </CmsSectionContainer>
     );
 };

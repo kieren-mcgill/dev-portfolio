@@ -2,8 +2,11 @@ import Section from "@/app/components/global/Section";
 import Image from "next/image";
 import bgOvals from '@/public/images/bg-ovals.svg';
 import Button from "@/app/components/global/Button";
+import { HeroData } from '@/app/types/cms';
 
-const HomePageHero = ({ heroData }: { heroData: any }) => {
+const HomePageHero = ({ heroData }: { heroData: HeroData | null }) => {
+
+    console.log(heroData?.buttonPath)
 
     return (
         <Section
@@ -22,7 +25,7 @@ const HomePageHero = ({ heroData }: { heroData: any }) => {
 
             <p className='max-w-[80vw]'>{heroData?.tagline || 'I\'m a software and web developer based in Sheffield, UK'}</p>
 
-            <Button type={'link'} href={heroData?.buttonPath || '#'}>{heroData?.buttonText || 'contact me'}</Button>
+            <Button type={'link'} path={heroData?.buttonPath || ''}>{heroData?.buttonText || 'contact me'}</Button>
         </Section>
     )
 }

@@ -1,7 +1,8 @@
 import Section from "@/app/components/global/Section";
 import ProjectCard from "@/app/components/ProjectCard";
+import { ProjectsData } from '@/app/types/cms';
 
-const ProjectsSection = ({ projectsData }: { projectsData: any[] }) => {
+const ProjectsSection = ({ projectsData }: { projectsData: ProjectsData | null }) => {
 
     return (
         <Section

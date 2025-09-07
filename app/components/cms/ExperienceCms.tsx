@@ -6,16 +6,10 @@ import Button from "@/app/components/global/Button";
 import CmsSectionContainer from "@/app/components/cms/CmsSectionContainer";
 import { updateExperienceData } from '@/app/actions/cms';
 import { generateRandomId } from '@/app/utils/idGenerator';
+import Form from "next/form";
+import { Experience, ExperienceData } from '@/app/types/cms';
 
-interface Experience {
-    id: number;
-    company: string;
-    title: string;
-    dates: string;
-    duties: string;
-}
-
-const ExperienceCms = ({ initialData }: { initialData: any }) => {
+const ExperienceCms = ({ initialData }: { initialData: ExperienceData | null }) => {
     const [experiences, setExperiences] = useState<Experience[]>(initialData?.experiences || []);
 
     const addExperience = () => {
@@ -28,7 +22,7 @@ const ExperienceCms = ({ initialData }: { initialData: any }) => {
 
     return (
         <CmsSectionContainer title={"Experience"}>
-            <form className="flex flex-col gap-4" action={updateExperienceData}>
+            <Form className="flex flex-col gap-4" action={updateExperienceData}>
                 {experiences.map((experience, index) => (
                     <div key={`experience-${index}`} className="border border-gray-600 p-4 rounded-md mb-4">
                         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -80,7 +74,7 @@ const ExperienceCms = ({ initialData }: { initialData: any }) => {
                 <div className="flex justify-end mt-4">
                     <Button type="submit">Save</Button>
                 </div>
-            </form>
+            </Form>
         </CmsSectionContainer>
     );
 };

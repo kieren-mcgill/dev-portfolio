@@ -1,7 +1,7 @@
 'use server'
 
 import { verifyAuthToken } from '@/app/actions/auth';
-import { getHeaderData, getHeroData, getPageData } from '@/app/actions/cms';
+import { getPageData } from '@/app/actions/cms';
 import HeaderCms from "@/app/components/cms/HeaderCms";
 import HeroCms from "@/app/components/cms/HeroCms";
 import AboutMeCms from "@/app/components/cms/AboutMeCms";
@@ -19,8 +19,6 @@ const AdminContentPage = async () => {
     }
 
     const pageData = await getPageData();
-
-    console.log("page data", pageData)
 
     return (
         <main className="p-8 mt-16">

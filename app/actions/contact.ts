@@ -1,8 +1,9 @@
 'use server'
 
-import {ContactFormSchema} from "@/app/schema/contact-form-schema";
-import {z} from "zod/v4";
-import {ContactFormState} from "@/app/types/contact-form";
+import { ContactFormSchema } from "@/app/schema/contact-form-schema";
+import { z } from "zod/v4";
+import { ContactFormState } from "@/app/types/contact-form";
+import Mailjet from 'node-mailjet';
 
 export const sendContactForm = async (
     _prevState: ContactFormState,
@@ -32,13 +33,13 @@ export const sendContactForm = async (
         }
     }
 
-    const mailjet = require('node-mailjet').apiConnect(
+    const mailjet = Mailjet.apiConnect(
         process.env.MAILJET_PUBLIC_KEY!,
         process.env.MAILJET_SECRET_KEY!
     );
 
     try {
-        const request = await mailjet.post('send', { version: 'v3.1' }).request({
+        await mailjet.post('send', { version: 'v3.1' }).request({
             Messages: [
                 {
                     From: {

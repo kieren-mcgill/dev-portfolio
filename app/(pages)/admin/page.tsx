@@ -7,7 +7,7 @@ import FormInput from "@/app/components/FormInput";
 import Button from "@/app/components/global/Button";
 import { authenticate } from "@/app/actions/admin";
 import Form from "next/form";
-import {AuthFormState} from "@/app/types/auth-form";
+import type {AuthFormState} from "@/app/types/auth-form";
 
 const AdminPage = () => {
 

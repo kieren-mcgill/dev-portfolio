@@ -6,17 +6,10 @@ import Button from "@/app/components/global/Button";
 import CmsSectionContainer from "@/app/components/cms/CmsSectionContainer";
 import { updateProjectsData } from '@/app/actions/cms';
 import { generateRandomId } from '@/app/utils/idGenerator';
+import Form from "next/form";
+import { Project, ProjectsData } from '@/app/types/cms';
 
-interface Project {
-    id: number;
-    title: string;
-    technologies: string;
-    projectLink: string;
-    codeLink: string;
-    imageUrl: string;
-}
-
-const ProjectsCms = ({ initialData }: { initialData: any }) => {
+const ProjectsCms = ({ initialData }: { initialData: ProjectsData | null }) => {
     const [projects, setProjects] = useState<Project[]>(initialData?.projects || []);
 
     const addProject = () => {
@@ -29,7 +22,7 @@ const ProjectsCms = ({ initialData }: { initialData: any }) => {
 
     return (
         <CmsSectionContainer title={"Projects"}>
-            <form className="flex flex-col gap-4" action={updateProjectsData}>
+            <Form className="flex flex-col gap-4" action={updateProjectsData}>
                 {projects.map((project, index) => (
                     <div key={project.id} className="border border-gray-600 p-4 rounded-md mb-4">
                         <h3 className="text-lg font-semibold mb-2">Project {index + 1}</h3>
@@ -91,7 +84,7 @@ const ProjectsCms = ({ initialData }: { initialData: any }) => {
                 <div className="flex justify-end mt-4">
                     <Button type="submit">Save</Button>
                 </div>
-            </form>
+            </Form>
         </CmsSectionContainer>
     );
 };
